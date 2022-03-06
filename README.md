@@ -1,0 +1,1 @@
+fronius-widget-react
