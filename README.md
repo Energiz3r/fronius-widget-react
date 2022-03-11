@@ -48,3 +48,13 @@ Built from scratch in react (with the exception of icons stolen from the Fronius
 ```
 
 Fronius inverters expose other API endpoints, however these fetch from flash instead of memory and so are not performant, with page load times in the multiple seconds - see {PDFlink}
+
+## server config
+
+### pm2
+
+`pm2 start npmx --name "Fronius" -- supervisor server.js`
+
+### git-auto-pull
+
+`pm2 start /home/tangles/Repos/git-auto-pull/node_modules/git-auto-pull/git-auto-pull.js --name "GitAutoPull" -- /home/tangles/Repos/fronius-widget-react/`
