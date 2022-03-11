@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e897df2d.css",
+    "main.js": "/static/js/main.f8714725.js",
+    "static/js/787.fff4193e.chunk.js": "/static/js/787.fff4193e.chunk.js",
+    "index.html": "/index.html",
+    "static/media/pv.svg": "/static/media/pv.311b42927ba231b5bc2d27068ab8cfae.svg",
+    "static/media/inverter-dark.svg": "/static/media/inverter-dark.d7c29624fbf23ebc17730764cf5f6d17.svg",
+    "static/media/inverter.svg": "/static/media/inverter.9609e8ac63dcd89b81f11713f05b3d3e.svg",
+    "static/media/sun.svg": "/static/media/sun.fb6232789a7b903b7d72a519d094bca9.svg",
+    "static/media/consumption.svg": "/static/media/consumption.b6511c307e625b9552fd70f7ca24986b.svg",
+    "static/media/moon.svg": "/static/media/moon.319f808df6cfb25bd4073c37027a47e2.svg",
+    "static/media/grid.svg": "/static/media/grid.1f71939f7258230499bf7ce5eb1ca3e5.svg",
+    "static/media/battery.svg": "/static/media/battery.5bd495d28621ac4378bb814c996c5ec2.svg",
+    "main.e897df2d.css.map": "/static/css/main.e897df2d.css.map",
+    "main.f8714725.js.map": "/static/js/main.f8714725.js.map",
+    "787.fff4193e.chunk.js.map": "/static/js/787.fff4193e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e897df2d.css",
+    "static/js/main.f8714725.js"
+  ]
+}
