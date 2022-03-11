@@ -30,4 +30,4 @@ app.get("/api", async (req, res) => {
   res.send(responseResolved);
 });
 app.listen(port, () => console.log(`PORT: ${port}`));
-console.log("NODE_ENV: ", process.env.NODE_ENV);
+console.log("NODE_ENV: ", process.env.NODE_ENV, " using dev: ", dev);
