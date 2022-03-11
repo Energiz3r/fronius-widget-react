@@ -5,9 +5,9 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 
 if (process.env.NODE_ENV)
-  console.log("NODE_ENV was defined, it was: ", process.env.NODE_ENV);
+  console.log("NODE_ENV was defined, it was:", process.env.NODE_ENV);
 if (process.env.PORT)
-  console.log("PORT was defined, it was: ", process.env.PORT);
+  console.log("PORT was defined, it was:", process.env.PORT);
 
 const dev = process.env.NODE_ENV === "development";
 const port = process.env.PORT || 4000;
@@ -30,4 +30,4 @@ app.get("/api", async (req, res) => {
   res.send(responseResolved);
 });
 app.listen(port, () => console.log(`PORT: ${port}`));
-console.log("NODE_ENV: ", process.env.NODE_ENV, " using dev: ", dev);
+console.log("NODE_ENV:", process.env.NODE_ENV, "using dev:", dev);
