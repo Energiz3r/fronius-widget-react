@@ -9,7 +9,7 @@ if (process.env.NODE_ENV)
 if (process.env.PORT)
   console.log("PORT was defined, it was: ", process.env.PORT);
 
-const dev = !process.env.NODE_ENV || process.env.NODE_ENV === "development";
+const dev = process.env.NODE_ENV === "development";
 const port = process.env.PORT || 4000;
 const subDir = "/build";
 const APIurl = dev
