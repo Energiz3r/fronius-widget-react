@@ -51,10 +51,12 @@ Fronius inverters expose other API endpoints, however these fetch from flash ins
 
 ## server config
 
+pm2 is the best method to run the included express server located in `/server/server.js`. Editing the `url` const in `/src/utils/fetch-solar.js` can allow you to fetch directly from your inverter, however mine has restricted CORS headers preventing this behaviour.
+
 ### pm2
 
 `pm2 start npmx --name "Fronius" -- supervisor server.js`
 
 ### git-auto-pull
 
-`pm2 start /home/tangles/Repos/git-auto-pull/node_modules/git-auto-pull/git-auto-pull.js --name "GitAutoPull" -- /home/tangles/Repos/fronius-widget-react/`
+`pm2 start /home/tangles/Repos/git-auto-pull/node_modules/git-auto-pull/git-auto-pull.js --name "GitAutoPull" -- /home/tangles/Repos/fronius-widget-react/ "npm run build && pm2 restart Fronius --no-color"`
