@@ -11,7 +11,7 @@ if (process.env.PORT)
 
 const dev = process.env.NODE_ENV === "development";
 const port = process.env.PORT || 4000;
-const subDir = "/build";
+const subDir = "/../build";
 const APIurl = dev
   ? `http://home.noobs.wtf:${port}/api`
   : "http://192.168.1.3/solar_api/v1/GetPowerFlowRealtimeData.fcgi";
@@ -30,4 +30,5 @@ app.get("/api", async (req, res) => {
   res.send(responseResolved);
 });
 app.listen(port, () => console.log(`PORT: ${port}`));
+console.log("Public root:", publicPath);
 console.log("NODE_ENV:", process.env.NODE_ENV, "using dev:", dev);
