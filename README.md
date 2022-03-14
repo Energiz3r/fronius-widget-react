@@ -59,4 +59,4 @@ pm2 is the best method to run the included express server located in `/server/se
 
 ### git-auto-pull
 
-`pm2 start /home/tangles/Repos/git-auto-pull/node_modules/git-auto-pull/git-auto-pull.js --name "GitAutoPull" -- /home/tangles/Repos/fronius-widget-react/ "npm run build && pm2 restart Fronius --no-color"`
+`pm2 start /home/tangles/Repos/git-auto-pull/node_modules/git-auto-pull/git-auto-pull.js --name "GitAutoPull" -- /home/tangles/Repos/fronius-widget-react/ "pm2 restart Fronius --no-color"`
