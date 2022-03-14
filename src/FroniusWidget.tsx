@@ -67,9 +67,15 @@ const generateChevrons = (
 
 interface Props {
   width: string;
+  darkMode: boolean;
+  setDarkMode: any;
 }
 
-const FroniusWidget = ({ width }: Props): JSX.Element => {
+const FroniusWidget = ({
+  width,
+  darkMode,
+  setDarkMode,
+}: Props): JSX.Element => {
   const [currentPower, setCurrentPower] = useState(0);
   const [currentGrid, setCurrentGrid] = useState(0);
   const [currentLoad, setCurrentLoad] = useState(0);
@@ -78,7 +84,6 @@ const FroniusWidget = ({ width }: Props): JSX.Element => {
   const [currentSC, setCurrentSC] = useState(0);
   const [currentAutonomy, setCurrentAutonomy] = useState(0);
   const [APIFetching, setAPIFetching] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
 
   const classes = useStyles({ darkMode, width });
 
@@ -106,14 +111,6 @@ const FroniusWidget = ({ width }: Props): JSX.Element => {
     if (!result.success) {
       console.log("Fetch error:", result.error);
     } else {
-      // console.log(
-      //   "PV:",
-      //   result.currentPower,
-      //   "Grid:",
-      //   result.currentGrid,
-      //   "Load:",
-      //   result.currentLoad
-      // );
       setCurrentPower(result.currentPower);
       setCurrentGrid(result.currentGrid);
       setCurrentLoad(result.currentLoad);
@@ -145,7 +142,7 @@ const FroniusWidget = ({ width }: Props): JSX.Element => {
           <DarkThemeToggle
             darkMode={darkMode}
             setDarkMode={setDarkMode}
-            buttonWidth={`calc(${width} / 22)`}
+            buttonWidth={`calc(${width} / 13)`}
           />
         </div>
         CURRENT POWER
