@@ -46,7 +46,7 @@ const Gauge = ({
   const displayText = hasSecondary && showSecondary ? textSecondary : text;
   const displayPercent =
     hasSecondary && showSecondary ? percentSecondary : percent;
-  const bgColor = darkMode ? "rgb(15,15,15)" : "white";
+  const bgColor = darkMode ? "rgb(0,0,0)" : "white";
   const classes = useStyles({
     darkMode,
     bgColor,
