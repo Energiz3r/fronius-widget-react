@@ -22,7 +22,7 @@ export const fetchFlowData = async () => {
       currentAutonomy: PV / Load * 100,
     };
   }
-  try {
+  try {    
     const response = await fetch(url, {
       method: "GET",
     });

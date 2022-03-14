@@ -1,11 +1,19 @@
-import React from "react";
-import "./App.css";
+import { useState } from "react";
+import { useStyles } from "./App.styles";
 import FroniusWidget from "./FroniusWidget";
 
+const froniusWidth = "94vmin";
+
 function App() {
+  const [darkMode, setDarkMode] = useState(true);
+  const classes = useStyles({ froniusWidth: froniusWidth });
   return (
-    <div className="App">
-      <FroniusWidget width="90vmin" />
+    <div className={classes.app}>
+      <FroniusWidget
+        width={froniusWidth}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
     </div>
   );
 }

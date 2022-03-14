@@ -18,12 +18,12 @@ export const useStyles = makeStyles({
     gridTemplateRows: "auto",
     gridAutoRows: "1fr",
     justifyContent: "center",
-    backgroundColor: darkMode ? "rgb(35,35,35)" : "white",
+    backgroundColor: darkMode ? "rgb(5,5,5)" : "white",
   }),
   header: ({ darkMode, width }: Props) => ({
     position: "relative",
     paddingTop: `calc(${width}/130)`,
-    height: `calc(${width}/70)`,
+    height: `calc(${width}/27)`,
     backgroundColor: darkMode ? "rgb(15,15,15)" : "white",
     padding: `calc(${width}/150)`,
     textAlign: "center",
@@ -31,7 +31,7 @@ export const useStyles = makeStyles({
       darkMode ? "rgb(120,120,120)" : "lightgrey"
     }`,
     color: darkMode ? "white" : "grey",
-    fontSize: `calc(${width}/90)`,
+    fontSize: `calc(${width}/30)`,
   }),
   statusIcon: ({ darkMode, width }: Props) => ({
     position: "absolute",
