@@ -7,7 +7,7 @@ import SVGPV from "./svg/pv.svg";
 import SVGGrid from "./svg/grid.svg";
 import SVGInverter from "./svg/inverter.svg";
 import SVGInverterDark from "./svg/inverter-dark.svg";
-import { fetchFlowData } from "./utils/fetch-solar";
+import { fetchFlowData, refreshSpeed } from "./utils/fetch-solar";
 import { findPoint } from "./utils/geometry";
 import DarkThemeToggle from "./DarkThemeToggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -126,7 +126,7 @@ const FroniusWidget = ({
     fetchData();
     const interval = setInterval(() => {
       fetchData();
-    }, 2000);
+    }, refreshSpeed);
     return () => clearInterval(interval);
   }, []);
 

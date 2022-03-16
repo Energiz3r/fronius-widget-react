@@ -1,5 +1,6 @@
 const url = '/api';
 const demoData = false;
+export const refreshSpeed = 200;
 
 function getRandomArbitrary(min:number, max:number) {
   return Math.random() * (max - min) + min;
