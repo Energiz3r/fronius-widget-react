@@ -8,16 +8,15 @@ This could be theoretically used with any brand of inverter's API. Editing `/src
 
 ## Getting Started
 
+- clone the repo
 - edit `APIurl` and `webPort` in `server.js` as needed to suit your setup
 - install NodeJS
-- clone the repo
-- navigate to `./fronius-widget-react/server`
+- navigate to `fronius-widget-react/server`
 - run `npm install`
 - start server with `node server.js`
+- if altering the front end code, use `npm run build`
 
-## Server Config - Node, Express, and PM2
-
-
+Note: if using `npm start` to run the webpack dev server, CORS will prevent fetching from the API, even for a localhost server - if the port is different the browser treats it as a different domain
 
 ## API data structure
 
@@ -71,8 +70,11 @@ Fronius inverters expose other API endpoints, however these fetch from flash ins
 I used these packages:
 
 [npm - pm2](https://www.npmjs.com/package/pm2) - start server at boot
+
 [npm - supervisor](https://www.npmjs.com/package/supervisor) - to monitor server.js and auto-restart if file is changed
+
 [npm - git-auto-pull](https://www.npmjs.com/package/git-auto-pull) - automatically pull down changes to the git repo, allowing me to update client and server code without having to log onto the server to update and restart it
 
 `pm2 start npx --name "Fronius" -- supervisor /home/tangles/Repos/fronius-widget-react/server/server.js && pm2 save` to start server in service mode
+
 `pm2 start /home/tangles/Repos/git-auto-pull/node_modules/git-auto-pull/git-auto-pull.js --name "GitAutoPull" -- /home/tangles/Repos/fronius-widget-react/ "pm2 restart Fronius --no-color"`
