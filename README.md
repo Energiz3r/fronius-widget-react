@@ -2,23 +2,23 @@
 
 ![screenshot](https://i.imgur.com/YeVx7GX.png)
 
-Built from scratch in react (with the exception of icons stolen from the FroniusWeb site), froinus-widget-react is a clone of the 'Current Power' widget from Fronius web. This, however, displays full screen / semi-responsively, responds instantly to changes in readings as it connects to your inverter's API directly over LAN or WiFi, and can be embedded in other react projects with ease.
+Built from scratch in react on Vite and Vanilla Extract (with the exception of SVGs stolen from the FroniusWeb site), froinus-widget-react is a clone of the 'Current Power' widget from Fronius web. This, however, displays full screen / semi-responsively, responds instantly to changes in readings as it connects to your inverter's API directly over LAN or WiFi, and can be embedded in other react projects with ease.
 
-This could be theoretically used with any brand of inverter's API. Editing `/src/utils/fetch-solar.js` to suit should be simple enough.
+This could be theoretically used with any brand of inverter's API by editing `/src/utils/fetch-solar.js` to suit that inverter's endpoint.
 
 ## Getting Started
 
 - clone the repo
-- edit `APIurl` and `webPort` in `server.js` as needed to suit your setup
+- edit the `inverterUrl` and `webPort` (and `publicFilesDir` if built files are moved from the current repo folder structure) consts in `server.js` to suit your inverter and desired server config
 - install NodeJS
 - navigate to `fronius-widget-react/server`
 - run `npm install`
 - start server with `node server.js`
-- if altering the front end code, use `npm run build`
+- if altering the front end code, use `npm run build` or `npm run dev` per the `package.json` scripts for Vite
 
 Note: if using `npm start` to run the webpack dev server, CORS will prevent fetching from the API, even for a localhost server - if the port is different the browser treats it as a different domain
 
-## API data structure
+## Example Fronius API data structure
 
 `http://<inverter IP address>/solar_api/v1/GetPowerFlowRealtimeData.fcgi`
 
@@ -65,9 +65,9 @@ Note: if using `npm start` to run the webpack dev server, CORS will prevent fetc
 
 Fronius inverters expose other API endpoints, however these fetch from flash instead of memory and so are not performant, with page load times in the multiple seconds - see {PDFlink}
 
-### linux server
+### linux server notes
 
-I used these packages:
+For anyone new to hosting on linux, I used these packages. Hopefully this info gives you a place to get started:
 
 [npm - pm2](https://www.npmjs.com/package/pm2) - start server at boot
 
