@@ -14,7 +14,7 @@ if (process.env.PORT)
 
 const dev = process.env.NODE_ENV === "development";
 const port = process.env.PORT || webPort;
-const subDir = "/../build";
+const subDir = "/../dist";
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
