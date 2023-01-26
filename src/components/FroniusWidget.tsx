@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { styles } from "./FroniusWidget.css";
-import Gauge from "./Gauge";
+import { Gauge } from "@energiz3r/component-library/src/components/Gauge/Gauge";
 import { ReactComponent as SVGBattery } from "../svg/battery.svg";
 import { ReactComponent as SVGConsumption } from "../svg/consumption.svg";
 import { ReactComponent as SVGPV } from "../svg/pv.svg";
@@ -70,6 +70,7 @@ const generateChevrons = (
 };
 
 interface Props {
+  gaugeWidth: string;
   width: string;
   darkMode: boolean;
   setDarkMode: any;
@@ -88,6 +89,7 @@ const isResponseValid = (result) => {
 };
 
 export const FroniusWidget = ({
+  gaugeWidth,
   width,
   darkMode,
   setDarkMode,
@@ -119,6 +121,11 @@ export const FroniusWidget = ({
   const currentBatteryText = `${Math.round(currentBattery)}%`;
   const currentSCText = `${Math.round(currentSC)}%`;
   const currentAutonomyText = `${Math.round(currentAutonomy)}%`;
+
+  const [showAutonomy, setShowAutonomy] = useState(false);
+  const handleAutonomyClick = () => {
+    setShowAutonomy(!showAutonomy);
+  };
 
   const fetchData = async () => {
     if (APIFetching) return;
@@ -270,7 +277,7 @@ export const FroniusWidget = ({
               Icon={SVGPV}
               darkMode={darkMode}
               percent={clamp((100 * Math.abs(currentPower)) / pvMax)}
-              width={width}
+              widthCssValue={gaugeWidth}
             />
           </div>
           <div style={colStyle}></div>
@@ -281,7 +288,7 @@ export const FroniusWidget = ({
               Icon={SVGConsumption}
               darkMode={darkMode}
               percent={clamp((100 * Math.abs(currentLoad)) / consumptionMax)}
-              width={width}
+              widthCssValue={gaugeWidth}
             />
           </div>
         </div>
@@ -293,7 +300,7 @@ export const FroniusWidget = ({
               darkMode={darkMode}
               variant="empty"
               Icon={darkMode ? SVGInverterDark : SVGInverter}
-              width={width}
+              widthCssValue={gaugeWidth}
             />
           </div>
           <div style={colStyle}></div>
@@ -306,7 +313,7 @@ export const FroniusWidget = ({
               Icon={SVGGrid}
               darkMode={darkMode}
               percent={clamp((100 * Math.abs(currentGrid)) / gridMax)}
-              width={width}
+              widthCssValue={gaugeWidth}
             />
           </div>
           <div style={colStyle}></div>
@@ -317,23 +324,23 @@ export const FroniusWidget = ({
                 text={currentBatteryText}
                 percent={currentBattery}
                 Icon={SVGBattery}
-                variant="battery"
+                variant="uniformSegments"
                 darkMode={darkMode}
-                width={width}
+                widthCssValue={gaugeWidth}
               />
             ) : (
               <Gauge
                 color={froniusColors.green}
-                text={currentAutonomyText}
-                textSecondary={currentSCText}
-                percent={currentAutonomy}
-                percentSecondary={currentSC}
+                text={showAutonomy ? currentAutonomyText : currentSCText}
+                percent={showAutonomy ? currentAutonomy : currentSC}
                 darkMode={darkMode}
                 variant="noscale"
-                iconText={`Self<br>Sufficiency`}
-                iconTextSecondary={`Self<br>Consumption`}
-                iconTextSize={2.7}
-                width={width}
+                hubText={
+                  showAutonomy ? `Self<br>Sufficiency` : `Self<br>Consumption`
+                }
+                hubTextSize={2.7}
+                widthCssValue={gaugeWidth}
+                onClick={handleAutonomyClick}
               />
             )}
           </div>
